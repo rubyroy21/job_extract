@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JobApplication",
+  "description": "Structured details extracted from a job application message. A field is null when the text does not state it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "input_status",
+    "applicant_name",
+    "email",
+    "phone",
+    "location",
+    "position_applied",
+    "company_applied_to",
+    "years_of_experience",
+    "current_job_title",
+    "current_company",
+    "highest_education",
+    "skills",
+    "expected_salary",
+    "notice_period",
+    "available_from",
+    "linkedin_url",
+    "portfolio_url",
+    "ambiguity_notes"
+  ],
+  "properties": {
+    "input_status": {
+      "type": "string",
+      "enum": ["valid", "ambiguous", "invalid"],
+      "description": "valid: a job application with no conflicts. ambiguous: a job application where some detail is conflicting or unclear. invalid: not a job application."
+    },
+    "applicant_name": { "type": ["string", "null"], "description": "Full name of the person applying." },
+    "email": { "type": ["string", "null"], "description": "Applicant's email address." },
+    "phone": { "type": ["string", "null"], "description": "Applicant's phone number, as written." },
+    "location": { "type": ["string", "null"], "description": "Where the applicant is based now." },
+    "position_applied": { "type": ["string", "null"], "description": "Job title the applicant is applying for." },
+    "company_applied_to": { "type": ["string", "null"], "description": "Company receiving the application." },
+    "years_of_experience": { "type": ["number", "null"], "description": "Total years of work experience, only if stated as a number." },
+    "current_job_title": { "type": ["string", "null"], "description": "Applicant's job title now." },
+    "current_company": { "type": ["string", "null"], "description": "Applicant's employer now." },
+    "highest_education": { "type": ["string", "null"], "description": "Highest qualification stated." },
+    "skills": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Skills the applicant says they have."
+    },
+    "expected_salary": { "type": ["string", "null"], "description": "Expected salary, as written, including currency." },
+    "notice_period": { "type": ["string", "null"], "description": "Notice period, as written." },
+    "available_from": { "type": ["string", "null"], "description": "Date the applicant can start, as written." },
+    "linkedin_url": { "type": ["string", "null"], "description": "LinkedIn profile link." },
+    "portfolio_url": { "type": ["string", "null"], "description": "Portfolio, GitHub or personal site link." },
+    "ambiguity_notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "One short note per conflicting or unclear detail. Empty when there are none."
+    }
+  }
+}

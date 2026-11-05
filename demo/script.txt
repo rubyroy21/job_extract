@@ -1,0 +1,15 @@
+Hi, I'm Ruby Roy, and this is my Job Application Extractor. It reads a messy job application and turns it into clean JSON using Google Gemini, without guessing anything.
+
+On the left, there is a box to paste a message. On the right, the JSON result appears.
+
+First, I click Complete application. A full email from Priya Raman fills the message box. Now I click Extract details. After a few seconds, a green bar appears saying Job application, with sixteen details found. Below it, the JSON shows her name, email, phone, the Senior Data Analyst role, Northwind Retail, seven years of experience, her skills, salary, and LinkedIn link.
+
+Next, I click Missing details. This short message from Tomás Díaz has no phone number or experience. I click Extract details. The status is still valid, with five details found. Only what he actually wrote is shown. Nothing is invented.
+
+Now I click Conflicting details. Nina Petrova says four years of experience, and later says eight. I click Extract details. A yellow bar appears saying Unclear details found. Experience is left out, and a note explains the conflict, so a recruiter can check it.
+
+Finally, I click Not a job application. This is a company's job advert, not an applicant. I click Extract details. A red bar says Not a job application, and nothing is extracted.
+
+Behind the scenes, FastAPI sends the message to Gemini at temperature zero with a fixed JSON schema. The jsonschema library validates the reply, and Python safety checks remove anything not found in the original message.
+
+I tested it on twenty five cases, and twenty two were fully correct. Thank you for watching.

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: job-app-extractor
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && npm ci --prefix frontend && npm run build --prefix frontend
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.0
+      - key: GEMINI_API_KEY
+        sync: false

@@ -1,0 +1,396 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "summary": {
+    "cases": 25,
+    "api_or_schema_failures": 0,
+    "fully_correct_cases": 22,
+    "status_accuracy": 0.92,
+    "field_accuracy": 0.9925,
+    "invented_values": 2,
+    "missing_info_accuracy": 0.9932885906040269
+  },
+  "by_category": {
+    "complete": {
+      "cases": 7,
+      "api_or_schema_failures": 0,
+      "fully_correct_cases": 6,
+      "status_accuracy": 1.0,
+      "field_accuracy": 0.9910714285714286,
+      "invented_values": 0,
+      "missing_info_accuracy": 1.0
+    },
+    "missing_info": {
+      "cases": 7,
+      "api_or_schema_failures": 0,
+      "fully_correct_cases": 7,
+      "status_accuracy": 1.0,
+      "field_accuracy": 1.0,
+      "invented_values": 0,
+      "missing_info_accuracy": 1.0
+    },
+    "ambiguous": {
+      "cases": 5,
+      "api_or_schema_failures": 0,
+      "fully_correct_cases": 3,
+      "status_accuracy": 0.6,
+      "field_accuracy": 0.975,
+      "invented_values": 2,
+      "missing_info_accuracy": 0.9696969696969697
+    },
+    "invalid": {
+      "cases": 6,
+      "api_or_schema_failures": 0,
+      "fully_correct_cases": 6,
+      "status_accuracy": 1.0,
+      "field_accuracy": 1.0,
+      "invented_values": 0,
+      "missing_info_accuracy": 1.0
+    }
+  },
+  "cases": [
+    {
+      "id": "complete_01",
+      "category": "complete",
+      "description": "Formal email with every field",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 0,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "complete_02",
+      "category": "complete",
+      "description": "Labelled form-style submission",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 3,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "complete_03",
+      "category": "complete",
+      "description": "Casual chat-style message",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 7,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "complete_04",
+      "category": "complete",
+      "description": "Details are scattered across a long cover letter",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 6,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "complete_05",
+      "category": "complete",
+      "description": "Experience written as a word",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 15,
+      "null_fields_expected": 8,
+      "invented_fields": [],
+      "mismatches": {
+        "location": {
+          "expected": "Lisbon",
+          "actual": null
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "complete_06",
+      "category": "complete",
+      "description": "Referee details must not be used as the applicant's",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 12,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "complete_07",
+      "category": "complete",
+      "description": "Message written in Hinglish",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 10,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_01",
+      "category": "missing_info",
+      "description": "Only a name and role",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 14,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_02",
+      "category": "missing_info",
+      "description": "No salary, must stay null",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 11,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_03",
+      "category": "missing_info",
+      "description": "No applicant name, must not be guessed from the email",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 14,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_04",
+      "category": "missing_info",
+      "description": "No email, must not be built from the name and company",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 13,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_05",
+      "category": "missing_info",
+      "description": "Graduation year must not become years of experience",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 12,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_06",
+      "category": "missing_info",
+      "description": "Job title must not lead to invented skills",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 13,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "missing_07",
+      "category": "missing_info",
+      "description": "No role, only an interest in working there",
+      "status_correct": true,
+      "expected_status": "valid",
+      "actual_status": "valid",
+      "fields_correct": 16,
+      "null_fields_expected": 13,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "ambiguous_01",
+      "category": "ambiguous",
+      "description": "Two conflicting years of experience",
+      "status_correct": true,
+      "expected_status": "ambiguous",
+      "actual_status": "ambiguous",
+      "fields_correct": 16,
+      "null_fields_expected": 13,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "ambiguous_02",
+      "category": "ambiguous",
+      "description": "Two different names",
+      "status_correct": false,
+      "expected_status": "ambiguous",
+      "actual_status": "valid",
+      "fields_correct": 15,
+      "null_fields_expected": 13,
+      "invented_fields": [
+        "applicant_name"
+      ],
+      "mismatches": {
+        "applicant_name": {
+          "expected": null,
+          "actual": "Marco Conti"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "ambiguous_03",
+      "category": "ambiguous",
+      "description": "Vague experience",
+      "status_correct": false,
+      "expected_status": "ambiguous",
+      "actual_status": "valid",
+      "fields_correct": 15,
+      "null_fields_expected": 13,
+      "invented_fields": [
+        "current_job_title"
+      ],
+      "mismatches": {
+        "current_job_title": {
+          "expected": null,
+          "actual": "teacher"
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "ambiguous_04",
+      "category": "ambiguous",
+      "description": "Conflicting roles",
+      "status_correct": true,
+      "expected_status": "ambiguous",
+      "actual_status": "ambiguous",
+      "fields_correct": 16,
+      "null_fields_expected": 13,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "ambiguous_05",
+      "category": "ambiguous",
+      "description": "Prompt injection inside the message",
+      "status_correct": true,
+      "expected_status": "ambiguous",
+      "actual_status": "ambiguous",
+      "fields_correct": 16,
+      "null_fields_expected": 14,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_01",
+      "category": "invalid",
+      "description": "Recipe",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_02",
+      "category": "invalid",
+      "description": "Job advert, not an application",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_03",
+      "category": "invalid",
+      "description": "Customer complaint containing a name and email",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_04",
+      "category": "invalid",
+      "description": "Random characters",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_05",
+      "category": "invalid",
+      "description": "Empty input, handled without calling the model",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    },
+    {
+      "id": "invalid_06",
+      "category": "invalid",
+      "description": "Spam",
+      "status_correct": true,
+      "expected_status": "invalid",
+      "actual_status": "invalid",
+      "fields_correct": 16,
+      "null_fields_expected": 16,
+      "invented_fields": [],
+      "mismatches": {},
+      "error": null
+    }
+  ]
+}
